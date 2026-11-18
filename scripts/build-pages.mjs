@@ -27,9 +27,9 @@ patch("$('#cart-bottom').innerHTML=state.cart.length?","document.querySelectorAl
 
 const whatsAppConfig=JSON.parse(fs.readFileSync(path.resolve('public/whatsapp-settings.json'),'utf8'));
 const businessNumber=String(whatsAppConfig.businessNumber||'').replace(/[^0-9]/g,'');
-const whatsappReady=Boolean(whatsAppConfig.acceptingOrders && whatsAppConfig.catalogVerified && /^\\d{10,15}$/.test(businessNumber));
+const whatsappReady=Boolean(whatsAppConfig.acceptingOrders && whatsAppConfig.catalogVerified && /^\d{10,15}$/.test(businessNumber));
 if(whatsAppConfig.acceptingOrders && !whatsappReady)throw Error('WhatsApp orders require a valid international business number and verified real product catalog.');
-app="const WHATSAPP_NUMBER="+JSON.stringify(businessNumber)+"; const WHATSAPP_READY="+JSON.stringify(whatsappReady)+";\\n"+app;
+app="const WHATSAPP_NUMBER="+JSON.stringify(businessNumber)+"; const WHATSAPP_READY="+JSON.stringify(whatsappReady)+";\n"+app;
 app=app.replace('Submit demo order ↗','Continue to WhatsApp ↗')
  .replace('DEMO MODE:</strong> This will create a test order only. No purchase, shipment or payment will occur.','WHATSAPP ORDER:</strong> Your order is only a request until you press Send in WhatsApp and Tarahi confirms availability and final shipping.')
  .replace('This is a demo storefront — no real orders.','You will confirm your order through WhatsApp.')
