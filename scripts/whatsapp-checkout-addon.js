@@ -3,13 +3,13 @@
 let waConfig={businessNumber:'',ordersEnabled:false,productsVerified:false};
 async function loadWhatsAppConfig(){
   try{
-    const response=await fetch(BASE+'/whatsapp-config.json',{cache:'no-store'});
+    const response=await fetch(BASE+'/whatsapp-settings.json',{cache:'no-store'});
     if(!response.ok)return;
     const cfg=await response.json();
     waConfig={
       businessNumber:typeof cfg.businessNumber==='string'?cfg.businessNumber.trim():'',
-      ordersEnabled:cfg.ordersEnabled===true,
-      productsVerified:cfg.productsVerified===true
+      ordersEnabled:cfg.acceptingOrders===true,
+      productsVerified:cfg.catalogVerified===true
     };
   }catch{waConfig={businessNumber:'',ordersEnabled:false,productsVerified:false};}
 }
