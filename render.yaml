@@ -1,0 +1,32 @@
+# Optional Render Blueprint. Review potential hosting/disk costs before deployment.
+# Create this as a NEW service; do not modify the MDIX service.
+services:
+  - type: web
+    name: tarahi-store
+    runtime: node
+    plan: starter
+    region: singapore
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /var/data
+      - key: STORE_LIVE
+        value: 'false'
+      - key: SHIPPING_FEE
+        value: '250'
+      - key: FREE_SHIPPING_OVER
+        value: '5000'
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: COOKIE_SECRET
+        generateValue: true
+    disk:
+      name: tarahi-data
+      mountPath: /var/data
+      sizeGB: 1
