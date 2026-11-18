@@ -27,6 +27,8 @@ patch("$('#cart-bottom').innerHTML=state.cart.length?","document.querySelectorAl
 fs.writeFileSync(path.join(out,'app.js'),app);
 let html=fs.readFileSync(path.join(out,'index.html'),'utf8');
 html=html.replace('<head>','<head>\n  <base href="/tarahi-store/">');
+html=html.replace(/(href|src)="\/(assets\/|styles\.css|app\.js)/g,'$1="/tarahi-store/$2');
+if(!html.includes('href="/tarahi-store/styles.css"') || !html.includes('src="/tarahi-store/app.js"') || !html.includes('href="/tarahi-store/assets/favicon.svg"')) throw Error('GitHub Pages asset paths failed validation');
 html=html.replace('A NEW KIND OF EVERYDAY · TARAHI STUDIO','PREVIEW ONLY · SAMPLE PRODUCTS · NO ORDERS ACCEPTED');
 fs.writeFileSync(path.join(out,'index.html'),html);
 fs.copyFileSync(path.join(out,'index.html'),path.join(out,'404.html'));
