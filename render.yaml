@@ -1,10 +1,10 @@
-# Optional Render Blueprint. Review potential hosting/disk costs before deployment.
+# Render Free preview Blueprint. No paid compute or persistent disk; demo-only storage.
 # Create this as a NEW service; do not modify the MDIX service.
 services:
   - type: web
     name: tarahi-store
     runtime: node
-    plan: starter
+    plan: free
     region: singapore
     buildCommand: npm install --omit=dev
     startCommand: npm start
@@ -15,7 +15,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATA_DIR
-        value: /var/data
+        value: /tmp/tarahi-demo
       - key: STORE_LIVE
         value: 'false'
       - key: SHIPPING_FEE
@@ -26,7 +26,3 @@ services:
         sync: false
       - key: COOKIE_SECRET
         generateValue: true
-    disk:
-      name: tarahi-data
-      mountPath: /var/data
-      sizeGB: 1
