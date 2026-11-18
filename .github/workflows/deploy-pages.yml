@@ -29,6 +29,8 @@ jobs:
           node-version: '22'
       - name: Build safe static preview
         run: node scripts/build-pages.mjs
+      - name: Check generated storefront JavaScript
+        run: node --check dist/app.js
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
