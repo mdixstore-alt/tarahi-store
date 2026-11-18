@@ -19,10 +19,10 @@ patch("history.pushState({},'',dest.pathname+dest.search)","history.pushState({}
 patch("const pathname=decodeURIComponent(location.pathname);","const pathname=decodeURIComponent(location.pathname.replace(new RegExp('^'+BASE),'')||'/');");
 patch("const r=await fetch('/api/catalog');","const r=await fetch(BASE+'/catalog-preview.json');");
 patch("const link=e.target.closest('a[data-link]');","const link=e.target.closest('a[href^=\"/\"]');");
-patch("else if(pathname==='/checkout')html=checkout();","else if(pathname==='/checkout')html=WHATSAPP_READY?checkout():`<section class=\"empty\"><span class=\"eyebrow\">TARAHI / WHATSAPP ORDERS</span><h2>WhatsApp ordering is being prepared.</h2><p>Our catalog is currently a preview. We're configuring the business WhatsApp number and real inventory before accepting orders.</p><a href=\"/shop\" data-link class=\"btn\">Continue browsing ↗</a></section>`;");
+patch("else if(pathname==='/checkout')html=checkout();","else if(pathname==='/checkout')html=whatsappCheckout();");
 patch("else if(['/about','/size-guide','/faq','/track'].includes(pathname))html=infoPage(pathname.slice(1));","else if(['/about','/size-guide','/faq'].includes(pathname))html=infoPage(pathname.slice(1));else if(pathname==='/track')html='<section class=\"empty\"><h2>Order tracking is unavailable in preview mode.</h2><a class=\"btn\" href=\"/shop\" data-link>Browse products ↗</a></section>';");
 patch("else if(pathname==='/admin')html=await loginPage();","else if(pathname==='/admin')html='<section class=\"empty\"><h2>Admin dashboard is unavailable on static hosting.</h2><p>This is a product preview. The sample listings can be changed through GitHub.</p><a class=\"btn\" href=\"/\" data-link>Back home ↗</a></section>';");
-patch("app.innerHTML=html;updateCartCount();","app.innerHTML=html;document.querySelectorAll('img[src^=\"/assets/\"]').forEach(img=>img.src=BASE+img.getAttribute('src'));updateCartCount();");
+patch("app.innerHTML=html;updateCartCount();","app.innerHTML=html;document.querySelectorAll('img[src^=\"/assets/\"]').forEach(img=>img.src=BASE+img.getAttribute('src'));if(pathname==='/checkout')waRefreshPreview();updateCartCount();");
 patch("$('#cart-bottom').innerHTML=state.cart.length?","document.querySelectorAll('#cart-contents img[src^=\"/assets/\"]').forEach(img=>img.src=BASE+img.getAttribute('src'));$('#cart-bottom').innerHTML=state.cart.length?");
 
 const whatsAppConfig=JSON.parse(fs.readFileSync(path.resolve('public/whatsapp-settings.json'),'utf8'));
@@ -66,6 +66,13 @@ const handler=`if(f.id==='checkout-form'){
 app=app.slice(0,startIdx)+handler+app.slice(endIdx);
 console.log('WhatsApp ordering configured:',whatsappReady?'enabled':'disabled until business number and verified products are supplied');
 
+patch("state.settings=j.settings;$('#demo-banner').hidden=!!j.settings.live;","state.settings=j.settings;await loadWhatsAppConfig();$('#demo-banner').hidden=!!j.settings.live;");
+const addon=fs.readFileSync('scripts/whatsapp-checkout-addon.js','utf8');
+if(!/\nstart\(\);\s*$/.test(app))throw Error('Missing application entry point');
+app=app.replace(/\nstart\(\);\s*$/,'\n'+addon+'\nstart();\n');
+if(!app.includes('function whatsappCheckout()')||!app.includes('await loadWhatsAppConfig()'))throw Error('WhatsApp build validation failed');
+const waConfig=JSON.parse(fs.readFileSync(path.join(out,'whatsapp-config.json'),'utf8'));
+if(waConfig.ordersEnabled && (!waConfig.productsVerified||!(/^[1-9][0-9]{7,14}$/).test(waConfig.businessNumber||'')))throw Error('WhatsApp orders cannot be enabled without verified products and an international business phone');
 fs.writeFileSync(path.join(out,'app.js'),app);
 let html=fs.readFileSync(path.join(out,'index.html'),'utf8');
 html=html.replace('<head>','<head>\n  <base href="/tarahi-store/">');
