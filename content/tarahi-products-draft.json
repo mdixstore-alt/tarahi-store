@@ -1,5 +1,5 @@
 {
-  "notice": "DRAFT PREVIEW: Products 1–4 use user-supplied optimized photography. Names, prices, materials, stock and fits remain provisional. WhatsApp ordering is disabled.",
+  "notice": "DRAFT PREVIEW: Product photography for the first five products comes from the user-supplied Tarahi photo archive. Names, prices, stock, composition and fit specifications remain provisional. Ordering is disabled.",
   "currency": "PKR",
   "sizes": [
     "S",
@@ -132,14 +132,35 @@
       "published": false
     },
     {
-      "slug": "graphic-poster-tee-black",
-      "name": "Graphic Poster Tee — Black",
-      "color": "Black",
+      "slug": "electric-mosaic-tee",
+      "name": "Electric Mosaic Graphic Tee — Jet Black",
+      "color": "Jet black",
       "category": "Graphics",
       "price": 2590,
-      "description": "High-impact multi-colour poster-inspired artwork on black.",
-      "image": null,
+      "description": "Bold scarlet-red gridwork and intricate electric-blue ornamental patterns take centre stage on a jet-black T-shirt. A clean crew-neck, short-sleeve silhouette balances the expressive front artwork with effortless everyday styling.",
+      "shortDescription": "Jet black meets electric-blue patterns and vivid red gridwork. A statement graphic for everyday wear.",
+      "details": [
+        "Colour: jet black with scarlet-red and electric-blue front artwork",
+        "Artwork: geometric grid with intricate swirling ornamental motifs",
+        "Style: crew neckline, short sleeves and straight hem, as photographed",
+        "Fit: regular-style silhouette as shown; compare your tee with the size guide",
+        "Size options: S, M, L, XL — availability subject to confirmation",
+        "Fabric composition and fabric weight: not yet confirmed",
+        "Care guidance: cool gentle wash inside out; do not iron over the print"
+      ],
+      "image": "/assets/products/electric-mosaic-tee/catalog-thumb.webp",
+      "images": [
+        "/assets/products/electric-mosaic-tee/front.webp",
+        "/assets/products/electric-mosaic-tee/look-left.webp",
+        "/assets/products/electric-mosaic-tee/relaxed-pose.webp",
+        "/assets/products/electric-mosaic-tee/hand-in-hair.webp",
+        "/assets/products/electric-mosaic-tee/angle-view.webp",
+        "/assets/products/electric-mosaic-tee/crossed-arms.webp",
+        "/assets/products/electric-mosaic-tee/print-detail.webp"
+      ],
+      "photoVerified": true,
       "stock": null,
+      "badge": "NEW",
       "published": false
     },
     {
