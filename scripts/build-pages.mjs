@@ -12,14 +12,17 @@ const samples=sourceDrafts.map((p,i)=>({
   id:i+1,
   slug:p.slug,
   name:p.name,
-  description:(p.description||'Tarahi T-shirt design.')+' Draft listing; name, price and physical inventory are not yet verified.',
+  description:(p.description||'Tarahi T-shirt design.')+' Price, fabric and stock are provisional until confirmed.',
   category:p.category||'Graphics',
   price:Number(p.price)||2490,
   comparePrice:0,
-  image:'/assets/'+placeholderArt[i%placeholderArt.length],
+  image:(p.image&&fs.existsSync(path.join(out,p.image.replace(/^\//,''))))?p.image:'/assets/'+placeholderArt[i%placeholderArt.length],
+  images:(Array.isArray(p.images)?p.images:[]).filter(v=>typeof v==='string'&&v.startsWith('/assets/')&&fs.existsSync(path.join(out,v.replace(/^\//,'')))),
+  details:Array.isArray(p.details)?p.details:[],
+  photoVerified:p.photoVerified===true,
   color:p.color||'As pictured',
-  badge:'DRAFT',
-  stock:10, // Cart interaction only: not claimed inventory; ordering is disabled.
+  badge:p.badge||'DRAFT',
+  stock:10, // Cart interaction only; not actual inventory. Orders are disabled.
   featured:true,
   active:true,
   catalogDraft:true
@@ -27,7 +30,7 @@ const samples=sourceDrafts.map((p,i)=>({
 fs.writeFileSync(path.join(out,'catalog-preview.json'),JSON.stringify({
   products:samples,
   settings:{live:false,shippingFee:250,freeShippingOver:5000,currency:'PKR',store:'Tarahi'},
-  catalogNotice:'Draft names, prices and stock are unverified. Product images are illustrative; WhatsApp ordering is disabled.'
+  catalogNotice:'Product 01 shows actual studio photography; remaining items are draft illustrations. All prices and stock are unverified. WhatsApp ordering is disabled.'
 },null,2));
 
 let app=fs.readFileSync(path.join(out,'app.js'),'utf8');
@@ -100,4 +103,4 @@ html=html.replace('A NEW KIND OF EVERYDAY · TARAHI STUDIO','PREVIEW ONLY · SAM
 fs.writeFileSync(path.join(out,'index.html'),html);
 fs.copyFileSync(path.join(out,'index.html'),path.join(out,'404.html'));
 fs.writeFileSync(path.join(out,'.nojekyll'),'');
-console.log('Built GitHub Pages preview; 6 sample products; no live checkout.');
+console.log('Built GitHub Pages preview; '+samples.length+' draft products; '+samples.filter(p=>p.photoVerified).length+' with real photos; no live checkout.');
