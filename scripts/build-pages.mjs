@@ -96,9 +96,11 @@ const waConfig=JSON.parse(fs.readFileSync(path.join(out,'whatsapp-settings.json'
 if(waConfig.acceptingOrders && (!waConfig.catalogVerified||!(/^[1-9][0-9]{7,14}$/).test(waConfig.businessNumber||'')))throw Error('WhatsApp orders cannot be enabled without verified products and an international business phone');
 fs.writeFileSync(path.join(out,'app.js'),app);
 let html=fs.readFileSync(path.join(out,'index.html'),'utf8');
-html=html.replace('<head>','<head>\n  <base href="/tarahi-store/">');
-html=html.replace(/(href|src)="\/(assets\/|styles\.css|app\.js)/g,'$1="/tarahi-store/$2');
-if(!html.includes('href="/tarahi-store/styles.css"') || !html.includes('src="/tarahi-store/app.js"') || !html.includes('href="/tarahi-store/assets/favicon.svg"')) throw Error('GitHub Pages asset paths failed validation');
+// Resolve the public asset base at runtime. GitHub Pages project previews use
+// /tarahi-store/; the custom tarahi.store domain serves these files from /.
+html=html.replace('<head>','<head>\n  <script>const baseEl=document.createElement("base");baseEl.href=location.hostname.endsWith(".github.io")?"/tarahi-store/":"/";document.head.appendChild(baseEl);</script>');
+html=html.replace(/(href|src)="\/(assets\/|styles\.css|app\.js)/g,'$1="$2');
+if(!html.includes('href="styles.css"') || !html.includes('src="app.js"') || !html.includes('href="assets/favicon.svg"')) throw Error('Storefront asset paths failed validation');
 html=html.replace('A NEW KIND OF EVERYDAY · TARAHI STUDIO','PREVIEW ONLY · DRAFT CATALOG · NO ORDERS ACCEPTED');
 fs.writeFileSync(path.join(out,'index.html'),html);
 fs.copyFileSync(path.join(out,'index.html'),path.join(out,'404.html'));
