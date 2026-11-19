@@ -1,0 +1,78 @@
+{
+  "notice": "DRAFT ONLY. Names, prices, descriptions and stock are creative placeholders informed by the earlier Figma photo overview, not verified against the uploaded ZIP. Do not enable real orders before review.",
+  "currency": "PKR",
+  "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL"
+  ],
+  "drafts": [
+    {
+      "slug": "cactus-noon-tee",
+      "name": "Cactus Noon Graphic Tee",
+      "color": "Heather grey",
+      "category": "Graphics",
+      "price": 2490,
+      "description": "An easy grey tee with a bright cactus graphic and a relaxed everyday mood.",
+      "image": null,
+      "stock": null,
+      "published": false
+    },
+    {
+      "slug": "lemon-pop-tee-grey",
+      "name": "Lemon Pop Tee — Grey",
+      "color": "Heather grey",
+      "category": "Graphics",
+      "price": 2390,
+      "description": "A playful lemon graphic on a versatile grey base.",
+      "image": null,
+      "stock": null,
+      "published": false
+    },
+    {
+      "slug": "lemon-pop-tee-navy",
+      "name": "Lemon Pop Tee — Navy",
+      "color": "Navy blue",
+      "category": "Graphics",
+      "price": 2390,
+      "description": "Fresh yellow citrus artwork against a deep navy T-shirt.",
+      "image": null,
+      "stock": null,
+      "published": false
+    },
+    {
+      "slug": "night-script-tee",
+      "name": "Night Script Tee",
+      "color": "Navy blue",
+      "category": "Graphics",
+      "price": 2590,
+      "description": "Decorative lettering and detailed artwork with a statement finish.",
+      "image": null,
+      "stock": null,
+      "published": false
+    },
+    {
+      "slug": "graphic-poster-tee-black",
+      "name": "Graphic Poster Tee — Black",
+      "color": "Black",
+      "category": "Graphics",
+      "price": 2590,
+      "description": "High-impact multi-colour poster-inspired artwork on black.",
+      "image": null,
+      "stock": null,
+      "published": false
+    },
+    {
+      "slug": "pink-poster-tee",
+      "name": "Pink Poster Tee",
+      "color": "Heather grey",
+      "category": "Graphics",
+      "price": 2490,
+      "description": "A bold rectangular pink graphic with an editorial streetwear feel.",
+      "image": null,
+      "stock": null,
+      "published": false
+    }
+  ]
+}
