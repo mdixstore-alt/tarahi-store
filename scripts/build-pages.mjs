@@ -105,4 +105,6 @@ html=html.replace('A NEW KIND OF EVERYDAY · TARAHI STUDIO','PREVIEW ONLY · DRA
 fs.writeFileSync(path.join(out,'index.html'),html);
 fs.copyFileSync(path.join(out,'index.html'),path.join(out,'404.html'));
 fs.writeFileSync(path.join(out,'.nojekyll'),'');
+// Publish the custom domain with each GitHub Pages artifact.
+fs.writeFileSync(path.join(out,'CNAME'),'tarahi.store\n');
 console.log('Built GitHub Pages preview; '+samples.length+' draft products; '+samples.filter(p=>p.photoVerified).length+' with real photos; no live checkout.');
