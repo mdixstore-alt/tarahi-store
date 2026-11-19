@@ -1,5 +1,5 @@
 {
-  "notice": "DRAFT PREVIEW: Product photography for the first five products comes from the user-supplied Tarahi photo archive. Names, prices, stock, composition and fit specifications remain provisional. Ordering is disabled.",
+  "notice": "DRAFT PREVIEW: All six items use optimized photos from the user-supplied Tarahi product archive. Product names, prices, stock, fabric and fit specifications remain provisional. WhatsApp ordering is disabled.",
   "currency": "PKR",
   "sizes": [
     "S",
@@ -164,17 +164,35 @@
       "published": false
     },
     {
-      "slug": "night-script-tee",
-      "name": "Night Script Graphic Tee — Draft",
-      "color": "Navy blue",
+      "slug": "stillwater-boat-tee",
+      "name": "Stillwater Boat Graphic Tee — Midnight Navy",
+      "color": "Midnight navy",
       "category": "Graphics",
       "price": 2590,
-      "description": "An upcoming calligraphy-inspired graphic T-shirt. Placeholder description and pricing until original photography is available.",
-      "image": null,
+      "description": "A quiet moment on the water, captured in a circular graphic. The Stillwater Boat Tee pairs a deep midnight-navy base with a softly illustrated wooden boat and its reflection against calm blue water. The crew-neck silhouette keeps this scene-inspired design easy to wear with denim, chinos, or relaxed trousers.",
+      "shortDescription": "Calm water, a wooden boat and an easy navy silhouette. A little stillness for your everyday rotation.",
+      "details": [
+        "Colour: midnight navy with a blue-toned circular boat illustration",
+        "Artwork: a wooden boat and its reflection on calm water",
+        "Style: crew neckline, short sleeves and straight hem as photographed",
+        "Fit: regular-style silhouette as pictured; fit and garment measurements should be checked",
+        "Sizes: S, M, L and XL — availability to be confirmed",
+        "Fabric composition, material weight and print method: to be confirmed",
+        "Suggested care: cool, gentle inside-out wash; avoid ironing directly over the print"
+      ],
+      "image": "/assets/products/stillwater-boat-tee/catalog-thumb.webp",
+      "images": [
+        "/assets/products/stillwater-boat-tee/front.webp",
+        "/assets/products/stillwater-boat-tee/look-away.webp",
+        "/assets/products/stillwater-boat-tee/crossed-arms.webp",
+        "/assets/products/stillwater-boat-tee/hand-in-hair.webp",
+        "/assets/products/stillwater-boat-tee/relaxed-pose.webp",
+        "/assets/products/stillwater-boat-tee/print-detail.webp"
+      ],
+      "photoVerified": true,
       "stock": null,
-      "published": false,
-      "photoVerified": false,
-      "badge": "DRAFT"
+      "badge": "NEW",
+      "published": false
     }
   ]
 }
