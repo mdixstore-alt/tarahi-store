@@ -1,5 +1,5 @@
 {
-  "notice": "DRAFT PREVIEW: Product photography for the first two items comes from the user-supplied Tarahi images; product names, prices, stock, fabric and fit specifications remain provisional. Ordering is disabled.",
+  "notice": "DRAFT PREVIEW: Products 1, 2 and 3 use user-supplied Tarahi photographs. Names, pricing, sizes, fabric and inventory are provisional. WhatsApp ordering remains disabled.",
   "currency": "PKR",
   "sizes": [
     "S",
@@ -70,14 +70,34 @@
       "badge": "NEW"
     },
     {
-      "slug": "lemon-pop-tee-navy",
-      "name": "Lemon Pop Tee — Navy",
-      "color": "Navy blue",
+      "slug": "cactus-sun-tee",
+      "name": "Cactus Sun Graphic Tee — Midnight Navy",
+      "color": "Midnight navy",
       "category": "Graphics",
-      "price": 2390,
-      "description": "Fresh yellow citrus artwork against a deep navy T-shirt.",
-      "image": null,
+      "price": 2490,
+      "description": "A graphic tee that brings desert colour to everyday style. A bold golden-yellow sun frames an illustrated green cactus on a deep midnight-navy base. Short sleeves, a classic crew neckline and an easy straight hem keep the focus on the clean, standout chest graphic.",
+      "shortDescription": "Midnight navy, golden sunshine and a green cactus. An easy graphic statement for everyday wear.",
+      "details": [
+        "Colour: midnight navy",
+        "Front artwork: green cactus against a round golden-yellow sun with subtle warm outlines",
+        "Style: short sleeves, classic crew neckline and straight hem as photographed",
+        "Silhouette: everyday regular-style fit shown on the model; exact fit depends on garment measurements",
+        "Sizes shown in Tarahi's tees size guide: S, M, L, XL — inventory is not yet verified",
+        "Composition and fabric weight: to be confirmed",
+        "Suggested care: wash inside out on a cool, gentle cycle; do not iron directly on the print",
+        "This is a draft product preview; price and inventory require confirmation before orders"
+      ],
+      "image": "/assets/products/cactus-sun-tee/catalog-thumb.webp",
+      "images": [
+        "/assets/products/cactus-sun-tee/front.webp",
+        "/assets/products/cactus-sun-tee/look-away.webp",
+        "/assets/products/cactus-sun-tee/relaxed-pose.webp",
+        "/assets/products/cactus-sun-tee/crossed-arms.webp",
+        "/assets/products/cactus-sun-tee/print-detail.webp"
+      ],
+      "photoVerified": true,
       "stock": null,
+      "badge": "NEW",
       "published": false
     },
     {
