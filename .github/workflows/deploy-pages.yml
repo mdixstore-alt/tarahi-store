@@ -29,6 +29,14 @@ jobs:
           node-version: '22'
       - name: Build safe static preview
         run: node scripts/build-pages.mjs
+      - name: Install Python for image optimization
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image encoder
+        run: python -m pip install Pillow==11.3.0
+      - name: Optimize product photo uploads
+        run: python scripts/prepare-product-photos.py
       - name: Check generated storefront JavaScript
         run: node --check dist/app.js
       - name: Configure GitHub Pages
