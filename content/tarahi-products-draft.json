@@ -1,5 +1,5 @@
 {
-  "notice": "DRAFT PREVIEW: Products 1, 2 and 3 use user-supplied Tarahi photographs. Names, pricing, sizes, fabric and inventory are provisional. WhatsApp ordering remains disabled.",
+  "notice": "DRAFT PREVIEW: Products 1–4 use user-supplied optimized photography. Names, prices, materials, stock and fits remain provisional. WhatsApp ordering is disabled.",
   "currency": "PKR",
   "sizes": [
     "S",
@@ -101,13 +101,33 @@
       "published": false
     },
     {
-      "slug": "night-script-tee",
-      "name": "Night Script Tee",
-      "color": "Navy blue",
+      "slug": "pink-portal-tee",
+      "name": "Pink Portal Graphic Tee — Heather Grey",
+      "color": "Heather grey",
       "category": "Graphics",
-      "price": 2590,
-      "description": "Decorative lettering and detailed artwork with a statement finish.",
-      "image": null,
+      "price": 2490,
+      "shortDescription": "A striking pop of pink framed by playful black dots, set against everyday heather grey.",
+      "description": "Meet Pink Portal: a statement-making graphic tee with a layered hot-pink rectangular print surrounded by a field of scattered black dots. The heather-grey base keeps its bold colour easy to wear, whether you're pairing it with denim, chinos or relaxed trousers. Draft product information and pricing, to be confirmed before sales.",
+      "image": "/assets/products/pink-portal-tee/catalog-thumb.webp",
+      "images": [
+        "/assets/products/pink-portal-tee/front.webp",
+        "/assets/products/pink-portal-tee/crossed-arms.webp",
+        "/assets/products/pink-portal-tee/relaxed-pose.webp",
+        "/assets/products/pink-portal-tee/hand-in-hair.webp",
+        "/assets/products/pink-portal-tee/side-view.webp",
+        "/assets/products/pink-portal-tee/print-detail.webp"
+      ],
+      "details": [
+        "Colour: heather grey with vivid fuchsia pink and black artwork",
+        "Graphic: layered rectangular pink artwork framed by scattered black dots",
+        "Style: classic crew neck, short sleeves and straight hem",
+        "Fit: regular-style silhouette as photographed; exact garment measurements may vary",
+        "Size guide: S, M, L, XL; actual stock availability to be confirmed",
+        "Fabric composition, weight and exact construction: to be confirmed",
+        "Suggested care: wash inside out on a gentle cool cycle; do not iron directly over printed artwork"
+      ],
+      "photoVerified": true,
+      "badge": "NEW",
       "stock": null,
       "published": false
     },
@@ -123,15 +143,17 @@
       "published": false
     },
     {
-      "slug": "pink-poster-tee",
-      "name": "Pink Poster Tee",
-      "color": "Heather grey",
+      "slug": "night-script-tee",
+      "name": "Night Script Graphic Tee — Draft",
+      "color": "Navy blue",
       "category": "Graphics",
-      "price": 2490,
-      "description": "A bold rectangular pink graphic with an editorial streetwear feel.",
+      "price": 2590,
+      "description": "An upcoming calligraphy-inspired graphic T-shirt. Placeholder description and pricing until original photography is available.",
       "image": null,
       "stock": null,
-      "published": false
+      "published": false,
+      "photoVerified": false,
+      "badge": "DRAFT"
     }
   ]
 }
