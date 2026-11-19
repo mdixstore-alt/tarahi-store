@@ -1,5 +1,5 @@
 {
-  "notice": "DRAFT ONLY. Names, prices, descriptions and stock are creative placeholders informed by the earlier Figma photo overview, not verified against the uploaded ZIP. Do not enable real orders before review.",
+  "notice": "DRAFT PREVIEW: Names, prices, material composition and physical inventory need verification before orders. Product 1 photography is genuine supplied studio photos, optimized to WebP.",
   "currency": "PKR",
   "sizes": [
     "S",
@@ -9,14 +9,33 @@
   ],
   "drafts": [
     {
-      "slug": "cactus-noon-tee",
-      "name": "Cactus Noon Graphic Tee",
-      "color": "Heather grey",
+      "slug": "harvest-script-tee",
+      "name": "Harvest Script Tee — Midnight Navy",
+      "color": "Midnight navy",
       "category": "Graphics",
-      "price": 2490,
-      "description": "An easy grey tee with a bright cactus graphic and a relaxed everyday mood.",
-      "image": null,
+      "price": 2590,
+      "description": "A quiet statement in midnight navy. Golden wheat stems rise through intricate calligraphic linework, with a single red accent bringing contrast to the design. An easy crew-neck tee that pairs expressive artwork with everyday styling.",
+      "shortDescription": "Deep navy. Golden wheat. Expressive calligraphy. A graphic tee that carries its own story.",
+      "details": [
+        "Colour: deep midnight navy with gold-toned artwork and a small red accent",
+        "Design: wheat-stalk motif woven through calligraphic graphics on the chest",
+        "Style: short sleeves, crew neck and straight hem",
+        "Fit: regular-style silhouette as shown in photos",
+        "Sizes: S, M, L, XL — check garment measurements before choosing",
+        "Material composition and fabric weight: to be confirmed",
+        "Care guidance: wash inside out on a cool, gentle cycle; avoid ironing the print"
+      ],
+      "image": "/assets/products/harvest-script-tee/catalog-thumb.webp",
+      "images": [
+        "/assets/products/harvest-script-tee/front.webp",
+        "/assets/products/harvest-script-tee/angle-left.webp",
+        "/assets/products/harvest-script-tee/pose-hand-up.webp",
+        "/assets/products/harvest-script-tee/angle-right.webp",
+        "/assets/products/harvest-script-tee/pose-crossed-arms.webp"
+      ],
+      "photoVerified": true,
       "stock": null,
+      "badge": "NEW",
       "published": false
     },
     {
