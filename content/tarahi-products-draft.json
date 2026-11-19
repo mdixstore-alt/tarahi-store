@@ -1,5 +1,5 @@
 {
-  "notice": "DRAFT PREVIEW: Names, prices, material composition and physical inventory need verification before orders. Product 1 photography is genuine supplied studio photos, optimized to WebP.",
+  "notice": "DRAFT PREVIEW: Product photography for the first two items comes from the user-supplied Tarahi images; product names, prices, stock, fabric and fit specifications remain provisional. Ordering is disabled.",
   "currency": "PKR",
   "sizes": [
     "S",
@@ -39,15 +39,35 @@
       "published": false
     },
     {
-      "slug": "lemon-pop-tee-grey",
-      "name": "Lemon Pop Tee — Grey",
+      "slug": "golden-pear-tee",
+      "name": "Golden Pear Graphic Tee — Heather Grey",
       "color": "Heather grey",
       "category": "Graphics",
       "price": 2390,
-      "description": "A playful lemon graphic on a versatile grey base.",
-      "image": null,
+      "description": "A bright, playful graphic tee with a golden-yellow pear illustration on a versatile heather-grey base. The clean crew-neck silhouette lets the oversized fruit artwork do the talking, while green leaves and small dotted details give the design a fresh, easygoing feel.",
+      "image": "/assets/products/golden-pear-tee/catalog-thumb.webp",
       "stock": null,
-      "published": false
+      "published": false,
+      "shortDescription": "A golden pear graphic meets everyday heather grey. Playful artwork, effortless styling.",
+      "details": [
+        "Colour: heather grey with a vivid golden-yellow pear and green leaf graphic",
+        "Artwork: large pear illustration with fine white outlines and dotted accents",
+        "Style: short sleeves, crew neckline and straight hem as photographed",
+        "Fit: regular-style silhouette shown in the studio photos; exact measurements should be checked",
+        "Available size options: S, M, L, XL — stock subject to confirmation",
+        "Fabric composition and material weight: to be confirmed",
+        "Suggested care: wash inside out on a cool, gentle cycle; do not iron over artwork"
+      ],
+      "images": [
+        "/assets/products/golden-pear-tee/front.webp",
+        "/assets/products/golden-pear-tee/look-away.webp",
+        "/assets/products/golden-pear-tee/side-view.webp",
+        "/assets/products/golden-pear-tee/hand-in-hair.webp",
+        "/assets/products/golden-pear-tee/casual-pose.webp",
+        "/assets/products/golden-pear-tee/print-detail.webp"
+      ],
+      "photoVerified": true,
+      "badge": "NEW"
     },
     {
       "slug": "lemon-pop-tee-navy",
