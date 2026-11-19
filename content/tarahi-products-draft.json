@@ -1,5 +1,5 @@
 {
-  "notice": "DRAFT PREVIEW: All six items use optimized photos from the user-supplied Tarahi product archive. Product names, prices, stock, fabric and fit specifications remain provisional. WhatsApp ordering is disabled.",
+  "notice": "DRAFT PREVIEW: All seven items use optimized photos from the user-supplied Tarahi archive. Product names, prices, stock, fabric and fit specifications remain provisional. WhatsApp ordering is disabled.",
   "currency": "PKR",
   "sizes": [
     "S",
@@ -192,6 +192,37 @@
       "photoVerified": true,
       "stock": null,
       "badge": "NEW",
+      "published": false
+    },
+    {
+      "slug": "festival-script-tee",
+      "name": "Festival Script Graphic Tee — Midnight Navy",
+      "color": "Midnight navy",
+      "category": "Graphics",
+      "price": 2590,
+      "description": "Colour-filled calligraphy-inspired artwork, vivid floral motifs and ornamental details give this midnight-navy graphic T-shirt an expressive everyday edge. Its clean crew-neck silhouette makes the bright front design easy to style with denim or neutral trousers.",
+      "shortDescription": "Expressive lettering, colourful details and a deep-navy base. A vibrant take on everyday graphic wear.",
+      "details": [
+        "Colour: deep midnight navy with multi-colour chest artwork",
+        "Artwork: calligraphy-inspired lettering, floral motifs and ornamental geometric details",
+        "Style: crew neckline, short sleeves and straight hem as photographed",
+        "Fit: regular-style silhouette as pictured; exact garment fit requires confirmation",
+        "Sizes: S, M, L and XL; availability is unconfirmed",
+        "Material composition, fabric weight and print method: to be confirmed",
+        "Suggested care: cool gentle wash inside out; do not iron directly over the print"
+      ],
+      "image": "/assets/products/festival-script-tee/catalog-thumb.webp",
+      "images": [
+        "/assets/products/festival-script-tee/front.webp",
+        "/assets/products/festival-script-tee/hand-in-hair.webp",
+        "/assets/products/festival-script-tee/crossed-arms.webp",
+        "/assets/products/festival-script-tee/angle-view.webp",
+        "/assets/products/festival-script-tee/relaxed-pose.webp",
+        "/assets/products/festival-script-tee/print-detail.webp"
+      ],
+      "photoVerified": true,
+      "badge": "NEW",
+      "stock": null,
       "published": false
     }
   ]

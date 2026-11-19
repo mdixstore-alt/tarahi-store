@@ -30,7 +30,7 @@ const samples=sourceDrafts.map((p,i)=>({
 fs.writeFileSync(path.join(out,'catalog-preview.json'),JSON.stringify({
   products:samples,
   settings:{live:false,shippingFee:250,freeShippingOver:5000,currency:'PKR',store:'Tarahi'},
-  catalogNotice:'Products with real photographs: '+samples.filter(p=>p.photoVerified).length+' of '+samples.length+'. Prices, sizes and stock are estimates. WhatsApp ordering is disabled.'
+  catalogNotice:'All '+samples.filter(p=>p.photoVerified).length+' product listings show optimized original Tarahi photography. Names, prices and stock are provisional. WhatsApp ordering is disabled.'
 },null,2));
 
 let app=fs.readFileSync(path.join(out,'app.js'),'utf8');
