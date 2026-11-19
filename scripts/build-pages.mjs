@@ -3,15 +3,33 @@ import path from 'node:path';
 const out=path.resolve('dist');
 fs.rmSync(out,{recursive:true,force:true});
 fs.cpSync(path.resolve('public'),out,{recursive:true});
-const samples=[
-['studio-oversized-tee','Studio Oversized Tee','Relaxed fit, soft feel, and an everyday silhouette.','Oversized',2390,2790,'tee-cream.svg','Oat / Off-white','BEST SELLER',24],
-['after-hours-graphic-tee','After Hours Tee','A statement graphic for the hours that belong to you.','Graphics',2590,2990,'tee-black.svg','Washed black','NEW',18],
-['everyday-essential-tee','Everyday Essential Tee','Your clean, dependable everyday basic.','Essentials',1890,2290,'tee-sage.svg','Sage green','',22],
-['mono-type-tee','Mono Type Tee','Minimal type and maximum versatility.','Graphics',2290,2690,'tee-grey.svg','Stone grey','',16],
-['sunday-club-tee','Sunday Club Tee','Made for slow mornings and good company.','Oversized',2490,2890,'tee-blue.svg','Dusty blue','LIMITED',15],
-['core-relaxed-tee','Core Relaxed Tee','A wardrobe anchor with a soft structured finish.','Essentials',1990,2390,'tee-brown.svg','Cocoa brown','',27]
-].map((p,i)=>({id:i+1,slug:p[0],name:p[1],description:p[2],category:p[3],price:p[4],comparePrice:p[5],image:'/assets/'+p[6],color:p[7],badge:p[8],stock:p[9],featured:true,active:true}));
-fs.writeFileSync(path.join(out,'catalog-preview.json'),JSON.stringify({products:samples,settings:{live:false,shippingFee:250,freeShippingOver:5000,currency:'PKR',store:'Tarahi'}},null,2));
+// The initial catalog is explicitly provisional. It shows user-authorized draft
+// names and prices using illustrations until product-photos/ contains actual photos.
+const sourceDrafts=JSON.parse(fs.readFileSync(path.resolve('content/tarahi-products-draft.json'),'utf8')).drafts;
+if(!Array.isArray(sourceDrafts)||!sourceDrafts.length)throw Error('No Tarahi draft products found.');
+const placeholderArt=['tee-grey.svg','tee-grey.svg','tee-blue.svg','tee-blue.svg','tee-black.svg','tee-sage.svg'];
+const samples=sourceDrafts.map((p,i)=>({
+  id:i+1,
+  slug:p.slug,
+  name:p.name,
+  description:(p.description||'Tarahi T-shirt design.')+' Draft listing; name, price and physical inventory are not yet verified.',
+  category:p.category||'Graphics',
+  price:Number(p.price)||2490,
+  comparePrice:0,
+  image:'/assets/'+placeholderArt[i%placeholderArt.length],
+  color:p.color||'As pictured',
+  badge:'DRAFT',
+  stock:10, // Cart interaction only: not claimed inventory; ordering is disabled.
+  featured:true,
+  active:true,
+  catalogDraft:true
+}));
+fs.writeFileSync(path.join(out,'catalog-preview.json'),JSON.stringify({
+  products:samples,
+  settings:{live:false,shippingFee:250,freeShippingOver:5000,currency:'PKR',store:'Tarahi'},
+  catalogNotice:'Draft names, prices and stock are unverified. Product images are illustrative; WhatsApp ordering is disabled.'
+},null,2));
+
 let app=fs.readFileSync(path.join(out,'app.js'),'utf8');
 function patch(oldText,newText){if(!app.includes(oldText))throw Error('Missing source match: '+oldText);app=app.replace(oldText,newText);}
 patch("const app=document.getElementById('app');","const BASE=location.hostname.endsWith('.github.io')?'/tarahi-store':'';\nconst app=document.getElementById('app');");
