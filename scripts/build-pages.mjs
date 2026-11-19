@@ -30,7 +30,7 @@ const samples=sourceDrafts.map((p,i)=>({
 fs.writeFileSync(path.join(out,'catalog-preview.json'),JSON.stringify({
   products:samples,
   settings:{live:false,shippingFee:250,freeShippingOver:5000,currency:'PKR',store:'Tarahi'},
-  catalogNotice:'Product 01 shows actual studio photography; remaining items are draft illustrations. All prices and stock are unverified. WhatsApp ordering is disabled.'
+  catalogNotice:'Products 1 and 2 use optimized original photography; remaining product images are placeholders. Prices, sizes and stock are draft estimates. WhatsApp ordering is disabled.'
 },null,2));
 
 let app=fs.readFileSync(path.join(out,'app.js'),'utf8');
