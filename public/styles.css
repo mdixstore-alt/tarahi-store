@@ -32,3 +32,36 @@
 .product-specs ul{padding-left:17px;margin:0;line-height:1.9;font-size:12px;color:#5e5852}
 .product-specs li{margin:4px 0}
 @media(max-width:620px){.product-thumbnails{gap:5px;margin-top:7px}.gallery-thumb{border-width:1px}}
+
+
+/* Tarahi mobile browsing and accessibility improvements */
+.skip-link{position:fixed;top:10px;left:10px;z-index:110;background:var(--ink);color:#fff;padding:13px 18px;transform:translateY(-150%);font-size:13px}
+.skip-link:focus{transform:translateY(0)}
+:where(a,button,input,textarea,select,summary):focus-visible{outline:2px solid #9d644c;outline-offset:3px}
+.draft-price-note{display:block;margin-top:7px;color:#797067;font-size:10px;font-weight:400;letter-spacing:.15px}
+.detail-preview-note{font-size:12px;line-height:1.6;color:#7b5c47;margin:-19px 0 22px;max-width:420px}
+.product-main-image{position:relative}
+.gallery-controls{position:absolute;right:14px;bottom:14px;display:flex;align-items:center;gap:8px;padding:5px;background:rgba(255,254,250,.95);box-shadow:0 3px 18px #0002}
+.gallery-controls #gallery-progress{min-width:45px;text-align:center;font-size:11px;font-weight:600;color:var(--ink)}
+.gallery-step{height:38px;width:38px;display:grid;place-items:center;background:transparent;border:0;color:var(--ink);font-size:28px;line-height:1}
+.gallery-step:hover{background:#e8e3db}
+.related-products{padding-top:70px;padding-bottom:95px;border-top:1px solid var(--line)}
+.related-products .section-head{margin-bottom:26px}
+.related-products .products-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:760px){
+  .header-actions .search-btn{display:flex}
+  .header-actions{gap:4px}
+  .header-actions .icon-btn,.header-actions .bag-btn{width:29px;min-width:29px}
+  .related-products{padding-top:52px;padding-bottom:70px}
+  .related-products .products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .qty-row{position:sticky;bottom:0;z-index:12;padding:12px 8px;margin-left:-8px;margin-right:-8px;background:var(--bg);box-shadow:0 -4px 18px #0000000c}
+  .gallery-controls{right:8px;bottom:8px}
+}
+@media(max-width:390px){
+  .header-inner .logo{font-size:31px}
+  .gallery-step{height:34px;width:34px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
