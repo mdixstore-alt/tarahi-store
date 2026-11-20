@@ -33,6 +33,8 @@ jobs:
       # Do not replace the hand-written seven-product catalog with auto-generated guesses.
       - name: Check generated storefront JavaScript
         run: node --check dist/app.js
+      - name: Validate curated catalog and preview safety
+        run: node scripts/validate-pages.mjs
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
         with:
