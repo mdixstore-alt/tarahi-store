@@ -1,5 +1,17 @@
 # Tarahi — Independent online store
 
+> **GitHub Pages preview (November 2026):** The live Pages workflow publishes seven
+> curated Tarahi graphic-tee drafts with optimized product photographs from
+> `content/tarahi-products-draft.json`. The `/shop` and product pages are previews;
+> prices, stock and fabric details are provisional, and ordering is disabled.
+> Static GitHub Pages does not run the Node checkout, inventory database, admin
+> dashboard or order tracking described below. Those belong to the separate
+> Node server if deployed to a compatible host.
+>
+> See [LAUNCH_CHECKLIST.md](LAUNCH_CHECKLIST.md) before accepting any customers.
+> The Pages workflow now preserves the curated catalog and validates the product
+> assets instead of regenerating anonymous listings.
+
 A fully coded, mobile-friendly e-commerce MVP for **tarahi.store**, inspired by the clean presentation and useful shopping flows of MDIX, but branded and styled independently for Tarahi tees. It does **not** alter the MDIX codebase, database or website.
 
 ## Included
