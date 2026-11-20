@@ -94,6 +94,18 @@ app=app.replace(/\nstart\(\);\s*$/,'\n'+addon+'\nstart();\n');
 if(!app.includes('function whatsappCheckout()')||!app.includes('await loadWhatsAppConfig()'))throw Error('WhatsApp build validation failed');
 const waConfig=JSON.parse(fs.readFileSync(path.join(out,'whatsapp-settings.json'),'utf8'));
 if(waConfig.acceptingOrders && (!waConfig.catalogVerified||!(/^[1-9][0-9]{7,14}$/).test(waConfig.businessNumber||'')))throw Error('WhatsApp orders cannot be enabled without verified products and an international business phone');
+// Keep category navigation aligned with the actual curated catalog.
+patch("['All','Oversized','Essentials','Graphics'].map(c=>", "['All',...new Set(state.products.map(p=>p.category).filter(Boolean))].map(c=>");
+// Featured collection should show a photographed product from the current graphic edit.
+patch('<div class="collection-art"><img loading="lazy" src="/assets/tee-black.svg" alt="Tarahi After Hours oversized tee" /></div>', '<div class="collection-art"><img loading="lazy" decoding="async" src="/assets/products/electric-mosaic-tee/front.webp" alt="Electric Mosaic graphic tee by Tarahi" /></div>');
+patch('THE OVERSIZED EDIT', 'THE GRAPHIC EDIT');
+patch('Room to<br/>be yourself.', 'Made to<br/>stand out.');
+patch('Laid-back proportions, effortless styling. The pieces you reach for without a second thought.', 'Original artwork, everyday silhouettes. Find a graphic that feels like you.');
+patch('href="/shop?category=Oversized" data-link>Discover oversized ↗', 'href="/shop?category=Graphics" data-link>Explore graphics ↗');
+// Preview-only FAQ: no claims that photos are mockups or orders are being placed.
+patch('Not yet. This is a demonstration website. Orders placed here are marked as demo and will not be fulfilled until the store is activated.', 'Not yet. This is a product preview. Orders cannot be submitted while prices and stock are being verified.');
+patch('The planned checkout supports cash on delivery in Pakistan. It will be enabled for real orders after operational details are confirmed.', 'Cash on delivery is planned. Availability and final terms will be confirmed before ordering opens.');
+patch('No. Product images are illustrative mockups, not photographs of real inventory.', 'The seven listings use Tarahi product photographs. Prices, materials and stock availability are still provisional.');
 fs.writeFileSync(path.join(out,'app.js'),app);
 let html=fs.readFileSync(path.join(out,'index.html'),'utf8');
 // Resolve the public asset base at runtime. GitHub Pages project previews use
@@ -102,6 +114,16 @@ html=html.replace('<head>','<head>\n  <script>const baseEl=document.createElemen
 html=html.replace(/(href|src)="\/(assets\/|styles\.css|app\.js)/g,'$1="$2');
 if(!html.includes('href="styles.css"') || !html.includes('src="app.js"') || !html.includes('href="assets/favicon.svg"')) throw Error('Storefront asset paths failed validation');
 html=html.replace('A NEW KIND OF EVERYDAY · TARAHI STUDIO','PREVIEW ONLY · DRAFT CATALOG · NO ORDERS ACCEPTED');
+// Avoid promoting empty categories and features unavailable on static GitHub Pages.
+html=html.replace(/<a href="\/shop\?category=(?:Oversized|Essentials)" data-link>[^<]*<\/a>/g,'');
+html=html.replace(/<a href="\/track" data-link>Track your order<\/a>/g,'');
+html=html.replace('<a href="/admin" data-link>Store admin</a>','');
+if(!html.includes('<form id="newsletter-form">'))throw Error('Missing preview newsletter form');
+html=html.replace(/<form id="newsletter-form">[\s\S]*?<\/form>/, '<p class="muted">Signups will open when Tarahi launches. This preview does not collect email addresses.</p>');
+html=html.replace('Sample products and prices are for demonstration only. Orders are not fulfilled.', 'Seven photographed products. Prices and stock remain unverified; orders are not open.');
+html=html.replace('Tarahi. Thoughtfully designed tees and everyday clothing. Explore the collection.', 'Explore seven original Tarahi graphic T-shirt designs. This is a preview; prices and stock are provisional.');
+// Avoid indexing unfinished prices, policies, and unavailable checkout pages.
+html=html.replace('<meta name="theme-color"', '<meta name="robots" content="noindex, nofollow" />\n  <meta name="theme-color"');
 fs.writeFileSync(path.join(out,'index.html'),html);
 fs.copyFileSync(path.join(out,'index.html'),path.join(out,'404.html'));
 fs.writeFileSync(path.join(out,'.nojekyll'),'');
