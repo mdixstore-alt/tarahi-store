@@ -143,6 +143,7 @@ button,input,textarea,select{font-family:var(--sans)}
 .section-head h2,.editorial-title{font:400 clamp(43px,4.2vw,70px)/1.02 var(--serif);letter-spacing:-.035em}
 .section-head h2 em{color:var(--accent);font-weight:400}
 .featured-section .section-head p{margin:15px 0 0;color:#77766c;font-size:12px}
+.featured-grid{margin-top:5px}
 .products-grid{gap:45px 22px}
 .product-card{min-width:0;position:relative}
 .product-image{aspect-ratio:.76;background:#ded9cd;isolation:isolate}
