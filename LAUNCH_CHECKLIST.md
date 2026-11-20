@@ -13,6 +13,11 @@ It is not a live checkout. The separate Node/Render server code is a different d
 - [x] Non-existent categories removed from static preview navigation.
 - [x] Preview ordering disabled and unverified product information labelled as draft.
 - [x] Deployment validator checks preview image paths and safe configuration.
+- [x] Mobile shop search, sticky product controls, gallery previous/next, related designs and indicative-price notices.
+- [x] Preview-only delivery/returns and privacy information; unconfirmed policy terms are explicitly labelled.
+- [x] Keyboard skip link, focus state and reduced-motion styling.
+- [x] Product-page document titles, social-sharing metadata and preview search noindex setting.
+- [x] Local build simulation validated the preview catalog, domain file, JavaScript syntax and deploy guards (not a live deployment check).
 - [ ] Confirm GitHub Pages **DNS check successful** and **Enforce HTTPS** enabled.
 - [ ] Verify https://tarahi.store and deep links on a phone (no browser privacy warning).
 - [ ] Verify selling prices, final stock per size, materials, fit, and product care.
@@ -39,7 +44,7 @@ The PKR prices shown in `content/tarahi-products-draft.json` are proposals only.
 
 1. In GitHub repository Settings → Pages, ensure the custom domain is `tarahi.store` and GitHub Pages reports a successful DNS check.
 2. Remove conflicting old host A/AAAA records at the DNS provider; keep the four published GitHub Pages apex A records and the `www` CNAME.
-3. After HTTPS is valid, verify the public homepage, `/shop?category=Graphics`, each product gallery, mobile navigation, and preview-only checkout.
+3. After HTTPS is valid, verify the public homepage, `/shop?category=Graphics`, each product gallery, mobile navigation, `/delivery`, `/privacy`, and preview-only checkout.
 4. Record verified commercial details in `content/tarahi-products-draft.json` and ensure the published policies are accurate.
 5. The static WhatsApp request flow is configured with `public/whatsapp-settings.json`, but keep `acceptingOrders` and `catalogVerified` **false** until verified products and operational ordering are ready.
 6. When ready to accept orders, test a customer request and manual confirmation, and decide whether static WhatsApp inquiries are adequate or a secure hosted backend is needed for inventory and order tracking.
