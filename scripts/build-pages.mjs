@@ -99,6 +99,7 @@ patch("['All','Oversized','Essentials','Graphics'].map(c=>", "['All',...new Set(
 // Featured collection should show a photographed product from the current graphic edit.
 patch('<div class="collection-art"><img loading="lazy" src="/assets/tee-black.svg" alt="Tarahi After Hours oversized tee" /></div>', '<div class="collection-art"><img loading="lazy" decoding="async" src="/assets/products/electric-mosaic-tee/front.webp" alt="Electric Mosaic graphic tee by Tarahi" /></div>');
 patch('THE OVERSIZED EDIT', 'THE GRAPHIC EDIT');
+patch('href="#footer" class="btn light">Join the Tarahi list ↗', 'href="/shop" data-link class="btn light">Explore the first edit ↗');
 patch('Room to<br/>be yourself.', 'Made to<br/>stand out.');
 patch('Laid-back proportions, effortless styling. The pieces you reach for without a second thought.', 'Original artwork, everyday silhouettes. Find a graphic that feels like you.');
 patch('href="/shop?category=Oversized" data-link>Discover oversized ↗', 'href="/shop?category=Graphics" data-link>Explore graphics ↗');
