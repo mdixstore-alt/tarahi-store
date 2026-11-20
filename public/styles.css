@@ -146,8 +146,8 @@ button,input,textarea,select{font-family:var(--sans)}
 .products-grid{gap:45px 22px}
 .product-card{min-width:0;position:relative}
 .product-image{aspect-ratio:.76;background:#ded9cd;isolation:isolate}
-.product-image:after{content:'';position:absolute;inset:58% 0 0;background:linear-gradient(transparent,#171a1640);pointer-events:none;z-index:0}
-.product-image img{position:relative;z-index:-1;transform:translateZ(0);transition:transform .6s cubic-bezier(.2,.8,.3,1),filter .5s}
+.product-image:after{content:'';position:absolute;inset:58% 0 0;background:linear-gradient(transparent,#171a1640);pointer-events:none;z-index:1}
+.product-image img{position:absolute;inset:0;z-index:0;transform:translateZ(0);transition:transform .6s cubic-bezier(.2,.8,.3,1),filter .5s}
 .product-card:hover .product-image img{transform:scale(1.04);filter:saturate(1.07)}
 .product-badge{z-index:2;top:15px;left:15px;padding:8px 11px;font-size:9px;background:#faf8f1f2;letter-spacing:.13em}
 .product-image-index{position:absolute;right:15px;top:18px;z-index:2;color:#fff;font-size:9px;letter-spacing:.13em;font-weight:800;text-shadow:0 1px 5px #0008}
@@ -183,7 +183,7 @@ button,input,textarea,select{font-family:var(--sans)}
 .lookbook-intro p{font-size:13px;line-height:1.9;color:#6e7067;max-width:320px;margin-bottom:24px}
 .lookbook-tile{display:block;position:relative;aspect-ratio:.69;overflow:hidden;background:#d8d4cb;isolation:isolate}
 .lookbook-tile:after{content:'';position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#101610b5);z-index:1}
-.lookbook-tile img{height:100%;width:100%;object-fit:cover;object-position:center 24%;transition:transform .7s ease;position:relative;z-index:-1}
+.lookbook-tile img{height:100%;width:100%;object-fit:cover;object-position:center 24%;transition:transform .7s ease;position:absolute;inset:0;z-index:0}
 .lookbook-tile:hover img{transform:scale(1.04)}
 .lookbook-tile-two{transform:translateY(44px)}
 .lookbook-tile-caption{position:absolute;z-index:3;bottom:25px;left:26px;right:24px;color:#fff;display:flex;flex-direction:column;gap:9px}
