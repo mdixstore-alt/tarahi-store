@@ -30,6 +30,17 @@ assert(app.includes("if(type==='delivery')") && app.includes("if(type==='privacy
 assert(!app.includes('Join the Tarahi list ↗'), 'Inactive newsletter call to action still visible');
 assert(app.includes("['All',...new Set(state.products.map(p=>p.category).filter(Boolean))]"), 'Empty categories may still appear');
 
+// Keep the 2026 editorial direction intact on future updates.
+const css = read('styles.css');
+for (const section of ['hero-editorial','featured-grid','lookbook-section','closing-band','shop-editorial-heading']) {
+  assert(app.includes(section), 'Editorial section missing from the storefront: ' + section);
+  assert(css.includes('.' + section), 'Editorial styling missing for section: ' + section);
+}
+assert(html.includes('Instrument+Serif') && html.includes('Manrope'), 'Editorial typography font links missing');
+assert(app.includes('golden-pear-tee') && app.includes('stillwater-boat-tee'), 'Photo lookbook links missing');
+assert(!app.includes('/assets/tee-black.svg'), 'Illustrative homepage photo has returned');
+
+
 
 const slugs = new Set();
 for (const p of products) {
