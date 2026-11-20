@@ -96,13 +96,7 @@ const waConfig=JSON.parse(fs.readFileSync(path.join(out,'whatsapp-settings.json'
 if(waConfig.acceptingOrders && (!waConfig.catalogVerified||!(/^[1-9][0-9]{7,14}$/).test(waConfig.businessNumber||'')))throw Error('WhatsApp orders cannot be enabled without verified products and an international business phone');
 // Keep category navigation aligned with the actual curated catalog.
 patch("['All','Oversized','Essentials','Graphics'].map(c=>", "['All',...new Set(state.products.map(p=>p.category).filter(Boolean))].map(c=>");
-// Featured collection should show a photographed product from the current graphic edit.
-patch('<div class="collection-art"><img loading="lazy" src="/assets/tee-black.svg" alt="Tarahi After Hours oversized tee" /></div>', '<div class="collection-art"><img loading="lazy" decoding="async" src="/assets/products/electric-mosaic-tee/front.webp" alt="Electric Mosaic graphic tee by Tarahi" /></div>');
-patch('THE OVERSIZED EDIT', 'THE GRAPHIC EDIT');
-patch('href="#footer" class="btn light">Join the Tarahi list ↗', 'href="/shop" data-link class="btn light">Explore the first edit ↗');
-patch('Room to<br/>be yourself.', 'Made to<br/>stand out.');
-patch('Laid-back proportions, effortless styling. The pieces you reach for without a second thought.', 'Original artwork, everyday silhouettes. Find a graphic that feels like you.');
-patch('href="/shop?category=Oversized" data-link>Discover oversized ↗', 'href="/shop?category=Graphics" data-link>Explore graphics ↗');
+// The editorial homepage now lives in public/app.js; avoid stale text rewrites.
 // Preview-only FAQ: no claims that photos are mockups or orders are being placed.
 patch('Not yet. This is a demonstration website. Orders placed here are marked as demo and will not be fulfilled until the store is activated.', 'Not yet. This is a product preview. Orders cannot be submitted while prices and stock are being verified.');
 patch('The planned checkout supports cash on delivery in Pakistan. It will be enabled for real orders after operational details are confirmed.', 'Cash on delivery is planned. Availability and final terms will be confirmed before ordering opens.');
