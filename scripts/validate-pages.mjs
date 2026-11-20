@@ -20,6 +20,16 @@ assert(html.includes('name="robots" content="noindex, nofollow"'), 'Unverified p
 assert(!html.includes('href="/shop?category=Oversized"'), 'Empty Oversized category still linked');
 assert(!html.includes('href="/shop?category=Essentials"'), 'Empty Essentials category still linked');
 assert(!html.includes('id="newsletter-form"'), 'Preview must not invite newsletter submissions');
+assert(html.includes('href="/delivery"') && html.includes('href="/privacy"'), 'Preview policy and privacy links missing');
+assert(html.includes('class="skip-link"') && html.includes('aria-expanded="false"'), 'Accessible navigation markup missing');
+assert(html.includes('property="og:image"'), 'Social sharing preview image missing');
+const app = read('app.js');
+assert(app.includes('related-products') && app.includes('gallery-progress'), 'Related products or gallery controls missing');
+assert(app.includes('Indicative price'), 'Draft price label missing');
+assert(app.includes("if(type==='delivery')") && app.includes("if(type==='privacy')"), 'Preview information pages missing');
+assert(!app.includes('Join the Tarahi list ↗'), 'Inactive newsletter call to action still visible');
+assert(app.includes("['All',...new Set(state.products.map(p=>p.category).filter(Boolean))]"), 'Empty categories may still appear');
+
 
 const slugs = new Set();
 for (const p of products) {
